@@ -28,8 +28,20 @@ class Application:
                                  command=self.onConnectAction)
         self.button.pack(padx=40, pady=10)
 
+        for i in range(1, 11):
+            ttk.Button(self.window,
+                       text='1/' + str(10*i),
+                       command=self.fireMaker(i)
+            ).pack()
+
     def callback(self, _):
         pass
+
+    def fire(self, i):
+        print(i)
+
+    def fireMaker(self, i):
+        return lambda: self.fire(i)
 
     def onConnectAction(self):
         if (self.box.current() == 0):
@@ -37,7 +49,7 @@ class Application:
             return
         self.box.configure(state='disabled')
         self.button.configure(state='disabled')
-        self.window.state('icon')  # 最小化
+        # self.window.state('icon')  # 最小化
         # self.window.withdraw()#隐藏窗口
         self.callback(str(self.box.get()))
 

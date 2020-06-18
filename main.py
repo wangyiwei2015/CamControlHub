@@ -16,8 +16,9 @@ def main():
 
     def arduinoLoop():
         arduino = Hardware(port=port)
-        while True:
-            arduino.invoke(input(info))
+        app.fire = lambda s: arduino.invoke(s)
+        '''while True:
+            arduino.invoke(input(info))'''
 
     devices = Hardware.find()
     app = Application(devices)
