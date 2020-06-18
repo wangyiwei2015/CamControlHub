@@ -1,5 +1,7 @@
 # CamControlHub
   
+#### This is currently used in a misterious lab only.
+
 ### Introduction
 
 This is used as a Camera Contoller Hub. The repo is composed of software-side (in Python 3.8) and hardware-side (with Arduino). The system can control a group of DSLR cameras and capture images one by one or simultaneously.
