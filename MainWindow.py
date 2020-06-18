@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.messagebox as tkmsg
-from time import sleep
 
 
 class Application:
@@ -11,10 +10,10 @@ class Application:
 
     def __init__(self, devices: list):
         self.window = tk.Tk()
-        self.window.title('端口选择')
+        self.window.title('CamControlHub')
         self.window.geometry("250x105")
 
-        if (len(devices) < 2):
+        if len(devices) < 2:
             self.errorWindow("设备未连接")
 
         self.box = ttk.Combobox(self.window)
@@ -30,12 +29,12 @@ class Application:
 
         for i in range(1, 11):
             ttk.Button(self.window,
-                       text='1/' + str(10*i),
+                       text='1/' + str(10 * i),
                        command=self.fireMaker(i)
-            ).pack()
+                       ).pack()
 
-    def callback(self, _):
-        pass
+    def callback(self, i):
+        print('Error: callback method not implemented. Parameter: ', i)
 
     def fire(self, i):
         print(i)
@@ -44,7 +43,7 @@ class Application:
         return lambda: self.fire(i)
 
     def onConnectAction(self):
-        if (self.box.current() == 0):
+        if self.box.current() == 0:
             self.errorWindow("连接失败，请检查设备/端口有效性")
             return
         self.box.configure(state='disabled')

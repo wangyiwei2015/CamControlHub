@@ -1,8 +1,10 @@
 import serial
 import serial.tools.list_ports
 
+
 class Hardware:
     s = serial.Serial()
+
     def __init__(self, port: str):
         self.s.port = port
         self.s.baudrate = 115200
