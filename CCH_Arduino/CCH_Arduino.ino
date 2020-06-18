@@ -20,7 +20,8 @@ void setup() {
   //interrupt: button -> trigger()
  // attachInterrupt(2, trigger, FALLING);
   Serial.begin(115200);
-  delay(6000); digitalWrite(pins[0], 0);
+  delay(1000);
+  Serial.print("Welcome to Camera Controller App.\nUsage:\n  send number to set framerate and fire immediately.\n  1 = 1/10s, 2 = 1/20s, ... n = 1/n0s\n  send 0 to fire all devices.");
 }
 
 int input;
@@ -40,6 +41,7 @@ void loop() {
       interval = 100 / input;
       btnready = false; trigger();
     }
+    input = 1000;
   }
   if(millis() - now >= interval) {
     now = millis();
