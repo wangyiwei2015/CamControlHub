@@ -27,8 +27,6 @@ class Instance:
     def arduinoLoop(self):
         self.arduino = Hardware(port=self.port)
         self.app.fire = lambda s: self.arduino.invoke(s)
-        '''while True:
-            arduino.invoke(input(info))'''
 
 
 def main():

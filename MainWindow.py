@@ -12,6 +12,7 @@ class Application:
         self.window = tk.Tk()
         self.window.title('CamControlHub')
         self.window.geometry("250x400")
+        self.window.resizable(0, 0)
 
         if len(devices) < 2:
             self.errorWindow("设备未连接")
