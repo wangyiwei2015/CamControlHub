@@ -11,7 +11,7 @@ class Application:
     def __init__(self, devices: list):
         self.window = tk.Tk()
         self.window.title('CamControlHub')
-        self.window.geometry("250x105")
+        self.window.geometry("250x400")
 
         if len(devices) < 2:
             self.errorWindow("设备未连接")

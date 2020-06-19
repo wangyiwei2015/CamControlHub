@@ -11,6 +11,7 @@ class Hardware:
         self.s.open()
 
     def invoke(self, shutter: str):
+        print(shutter)
         self.s.write(shutter.encode())
 
     @classmethod
